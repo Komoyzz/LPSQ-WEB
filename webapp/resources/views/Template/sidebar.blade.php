@@ -19,7 +19,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Tables (Audit)</span><i
+                <i class="bi bi-layout-text-window-reverse"></i><span>Tables (SMS)</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -68,12 +68,17 @@
                         <i class="bi bi-circle"></i><span>Negative Feedback</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('moc') }}">
+                        <i class="bi bi-circle"></i><span>MOC</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End Tables Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-bar-chart"></i><span>Tables (YTD)</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-bar-chart"></i><span>Tables (QSE)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -103,7 +108,7 @@
                 </li>
                 <li>
                     <a href="{{ route('sirre') }}">
-                        <i class="bi bi-circle"></i><span>Sirre</span>
+                        <i class="bi bi-circle"></i><span>Sire</span>
                     </a>
                 </li>
                 <li>

@@ -66,6 +66,14 @@
                                     </div>
                                 </div>
 
+                                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                    <i class="bi bi-star me-1"></i>
+                                    Harap masukkan file excel yang hanya mempunyai tabel variabel data yang akan dijadikan
+                                    diagram!
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+
                             </form><!-- End General Form Elements -->
 
                         </div>

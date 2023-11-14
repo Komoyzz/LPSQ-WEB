@@ -67,6 +67,10 @@ Route::get('/negativefeedback', function () {
     return view('Audit.negativefeedback');
 })->name('negativefeedback');
 
+Route::get('/moc', function () {
+    return view('Audit.moc');
+})->name('moc');
+
 Route::get('/incidentrecord', function () {
     return view('YTD.incidentrecord');
 })->name('incidentrecord');
