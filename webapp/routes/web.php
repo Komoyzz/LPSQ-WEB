@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NavAuditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,6 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
-
 // Auth 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'login')->name('login')->middleware('guest');
@@ -26,14 +22,19 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout')->name('logout');
 });
 
+// Dashboard
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/formexcel', function () {
     return view('formexcel');
 })->name('formexcel');
 
-Route::get('/navigationaudit', function () {
-    return view('Audit.navigationaudit');
-})->name('navigationaudit');
+// Audit
+Route::controller(NavAuditController::class)->group(function () {
+    Route::get('/navigationaudit', 'index')->name('navigationaudit');
+});
 
 Route::get('/cargooperation', function () {
     return view('Audit.cargooperation');
@@ -71,6 +72,7 @@ Route::get('/moc', function () {
     return view('Audit.moc');
 })->name('moc');
 
+// YTD
 Route::get('/incidentrecord', function () {
     return view('YTD.incidentrecord');
 })->name('incidentrecord');
