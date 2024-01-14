@@ -62,10 +62,9 @@ Route::controller(AuthController::class)->group(function () {
 
 // Dashboard
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [DashboardController::class, 'index'])->name('home');
-    Route::post('/task', [DashboardController::class, 'store'])->name('task.store');
-    Route::put('/taskupdate/{id}', [DashboardController::class, 'update'])->name('task.update');
-    Route::delete('/taskdelete/{id}', [DashboardController::class, 'destroy'])->name('task.destroy');
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
 });
 
 // Form Excel
