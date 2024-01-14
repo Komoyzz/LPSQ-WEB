@@ -12,7 +12,6 @@ use App\Http\Controllers\YTD\OHSIController;
 use App\Http\Controllers\YTD\SireController;
 use App\Http\Controllers\YTD\UAUCController;
 use App\Http\Controllers\Audit\MWTController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Audit\CargoController;
 use App\Http\Controllers\Audit\EngineController;
 use App\Http\Controllers\YTD\IncidentController;
