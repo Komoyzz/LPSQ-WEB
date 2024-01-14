@@ -46,439 +46,6 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Sidebar
---------------------------------------------------------------*/
-.sidebar {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    bottom: 0;
-    width: 300px;
-    z-index: 996;
-    transition: all 0.3s;
-    padding: 20px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #aab7cf transparent;
-    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-    background-color: #fff;
-}
-
-@media (max-width: 1199px) {
-    .sidebar {
-        left: -300px;
-    }
-}
-
-.sidebar::-webkit-scrollbar {
-    width: 5px;
-    height: 8px;
-    background-color: #fff;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background-color: #aab7cf;
-}
-
-@media (min-width: 1200px) {
-    #main,
-    #footer {
-        margin-left: 300px;
-    }
-}
-
-@media (max-width: 1199px) {
-    .toggle-sidebar .sidebar {
-        left: 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .toggle-sidebar #main,
-    .toggle-sidebar #footer {
-        margin-left: 0;
-    }
-
-    .toggle-sidebar .sidebar {
-        left: -300px;
-    }
-}
-
-.sidebar-nav {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.sidebar-nav li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.sidebar-nav .nav-item {
-    margin-bottom: 5px;
-}
-
-.sidebar-nav .nav-heading {
-    font-size: 11px;
-    text-transform: uppercase;
-    color: #899bbd;
-    font-weight: 600;
-    margin: 10px 0 5px 15px;
-}
-
-.sidebar-nav .nav-link {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-    color: #4154f1;
-    transition: 0.3;
-    background: #f6f9ff;
-    padding: 10px 15px;
-    border-radius: 4px;
-}
-
-.sidebar-nav .nav-link i {
-    font-size: 16px;
-    margin-right: 10px;
-    color: #4154f1;
-}
-
-.sidebar-nav .nav-link.collapsed {
-    color: #012970;
-    background: #fff;
-}
-
-.sidebar-nav .nav-link.collapsed i {
-    color: #899bbd;
-}
-
-.sidebar-nav .nav-link:hover {
-    color: #4154f1;
-    background: #f6f9ff;
-}
-
-.sidebar-nav .nav-link:hover i {
-    color: #4154f1;
-}
-
-.sidebar-nav .nav-link .bi-chevron-down {
-    margin-right: 0;
-    transition: transform 0.2s ease-in-out;
-}
-
-.sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
-    transform: rotate(180deg);
-}
-
-.sidebar-nav .nav-content {
-    padding: 5px 0 0 0;
-    margin: 0;
-    list-style: none;
-}
-
-.sidebar-nav .nav-content a {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: #012970;
-    transition: 0.3;
-    padding: 10px 0 10px 40px;
-    transition: 0.3s;
-}
-
-.sidebar-nav .nav-content a i {
-    font-size: 6px;
-    margin-right: 8px;
-    line-height: 0;
-    border-radius: 50%;
-}
-
-.sidebar-nav .nav-content a:hover,
-.sidebar-nav .nav-content a.active {
-    color: #4154f1;
-}
-
-.sidebar-nav .nav-content a.active i {
-    background-color: #4154f1;
-}
-
-/*--------------------------------------------------------------
-# Adjust List
---------------------------------------------------------------*/
-li {
-    list-style: none;
-}
-
-/*--------------------------------------------------------------
-# Download Button
---------------------------------------------------------------*/
-.download-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #758e4f;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-}
-.download-button:hover {
-    background-color: #ffffff;
-}
-
-/*--------------------------------------------------------------
-# Datepicker
---------------------------------------------------------------*/
-.my-calendar {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-.wrapper {
-    width: 568px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-}
-.wrapper header {
-    display: flex;
-    align-items: center;
-    padding: 25px 30px 10px;
-    justify-content: space-between;
-}
-.calendar-icon {
-    height: 38px;
-    width: 60px;
-    line-height: 38px;
-    font-size: 1.45rem;
-    border-radius: 50%;
-    text-align: center;
-}
-header .icons {
-    display: flex;
-}
-header .icons span {
-    height: 38px;
-    width: 38px;
-    cursor: pointer;
-    color: #878787;
-    text-align: center;
-    line-height: 38px;
-    font-size: 1.25rem;
-    user-select: none;
-    border-radius: 50%;
-}
-.icons span:last-child {
-    margin-right: 0px;
-}
-header .icons span:hover {
-    background: #f2f2f2;
-}
-header .current-date {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-.calendar {
-    padding: 20px;
-}
-.calendar ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    text-align: center;
-    padding-inline-start: 0px;
-}
-.calendar .days {
-    margin-bottom: 20px;
-}
-.calendar li {
-    color: #333;
-    width: calc(100% / 7);
-    font-size: 1rem;
-}
-.calendar .weeks li {
-    font-weight: 500;
-    cursor: default;
-}
-.calendar .days li {
-    z-index: 1;
-    cursor: pointer;
-    position: relative;
-    margin-top: 20px;
-}
-.days li.inactive {
-    color: #aaa;
-}
-.days li.active {
-    color: #fff;
-}
-.days li::before {
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 50%;
-    height: 40px;
-    width: 40px;
-    z-index: -1;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-.days li.active::before {
-    background: #9b59b6;
-}
-.days li:not(.active):hover::before {
-    background: #f2f2f2;
-}
-
-/*--------------------------------------------------------------
-# To-Do List
---------------------------------------------------------------*/
-.to-do-list {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 20px;
-}
-
-header .to-do-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-header h1 .to-do-list {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
-
-header i .to-do-list {
-    margin-right: 10px;
-}
-
-.task-list {
-    list-style: none;
-    padding: 0;
-}
-
-.task-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.task-item button {
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-}
-
-.task-text {
-    flex-grow: 1;
-    margin: 0 10px;
-    font-size: 16px;
-    color: #333;
-}
-
-.completed {
-    text-decoration: line-through;
-    color: #888;
-}
-
-.add-task-form {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.add-task-form input {
-    padding: 5px;
-    margin-right: 10px;
-}
-
-.add-task-form button {
-    padding: 5px 10px;
-}
-
-.checklist-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #28a745; /* Warna hijau sesuai dengan Bootstrap success */
-}
-.checklist-btn i {
-    font-size: 1.5rem; /* Sesuaikan ukuran ikon sesuai kebutuhan Anda */
-}
-.task-text {
-    text-transform: uppercase; /* Membuat tulisan task menjadi kapital */
-}
-.task-text.completed {
-    text-decoration: line-through;
-}
-.delete-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-.delete-btn i {
-    font-size: 1.5rem; /* Sesuaikan ukuran ikon X sesuai kebutuhan Anda */
-}
-
-/*--------------------------------------------------------------
-# Calendar
---------------------------------------------------------------*/
-#calendar {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
-    padding-top: 10px;
-}
-
-.date-dropdown {
-    margin-top: 10px;
-    color: #fff;
-}
-
-#add-new-event {
-    transition: all linear 0.3s;
-}
-
-.external-event {
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
-    border-radius: 0.25rem;
-    cursor: move;
-    font-weight: 700;
-    margin-bottom: 4px;
-    padding: 5px 10px;
-}
-
-.external-event:hover {
-    box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.2);
-}
-
-/*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/
 .pagetitle {
@@ -1020,6 +587,176 @@ header i .to-do-list {
 }
 
 /*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 996;
+    transition: all 0.3s;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    background-color: #fff;
+}
+
+@media (max-width: 1199px) {
+    .sidebar {
+        left: -300px;
+    }
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #fff;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #aab7cf;
+}
+
+@media (min-width: 1200px) {
+    #main,
+    #footer {
+        margin-left: 300px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .toggle-sidebar .sidebar {
+        left: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .toggle-sidebar #main,
+    .toggle-sidebar #footer {
+        margin-left: 0;
+    }
+
+    .toggle-sidebar .sidebar {
+        left: -300px;
+    }
+}
+
+.sidebar-nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-nav .nav-item {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-heading {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #899bbd;
+    font-weight: 600;
+    margin: 10px 0 5px 15px;
+}
+
+.sidebar-nav .nav-link.active {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4154f1;
+    transition: 0.3;
+    background: #f6f9ff;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.sidebar-nav .nav-link.active i {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #4154f1;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #012970;
+    transition: 0.3;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.sidebar-nav .nav-link i {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #899bbd;
+}
+
+.sidebar-nav .nav-link:hover {
+    color: #4154f1;
+    background: #f6f9ff;
+}
+
+.sidebar-nav .nav-link:hover i {
+    color: #4154f1;
+}
+
+.sidebar-nav .nav-link .bi-chevron-down {
+    margin-right: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+.sidebar-nav .nav-content {
+    padding: 5px 0 0 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-nav .nav-content a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #012970;
+    transition: 0.3;
+    padding: 10px 0 10px 40px;
+    transition: 0.3s;
+}
+
+.sidebar-nav .nav-content a i {
+    font-size: 6px;
+    margin-right: 8px;
+    line-height: 0;
+    border-radius: 50%;
+}
+
+.sidebar-nav .nav-content a:hover,
+.sidebar-nav .nav-content a.active {
+    color: #4154f1;
+}
+
+.sidebar-nav .nav-content a.active i {
+    background-color: #4154f1;
+}
+
+/*--------------------------------------------------------------
 # Dashboard
 --------------------------------------------------------------*/
 /* Filter dropdown */
@@ -1496,4 +1233,26 @@ header i .to-do-list {
     text-align: center;
     font-size: 13px;
     color: #012970;
+}
+
+/*--------------------------------------------------------------
+# Download Button
+--------------------------------------------------------------*/
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #758e4f;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+.download-button:hover {
+    background-color: #ffffff;
 }

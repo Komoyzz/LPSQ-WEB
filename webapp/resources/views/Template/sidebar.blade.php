@@ -3,21 +3,22 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('home') }}">
+            <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('formexcel') }}">
+            <a class="nav-link {{ Request::is('formexcel') ? 'active' : '' }}" href="{{ route('formexcel') }}">
                 <i class="bi bi-journal-text"></i>
                 <span>Form Excel</span>
             </a>
         </li><!-- End Form Excel Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('navigationaudit', 'cargooperation', 'mooringoperation', 'engineeringaudit', 'superintendentvisit', 'circular', 'mwt', 'negativefeedback') ? 'active' : '' }}"
+                data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Chart (SMS)</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -66,7 +67,8 @@
         </li><!-- End Tables Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('incidentrecord', 'investigationrecord', 'bjst', 'psc', 'cdi', 'sirre', 'internalaudit', 'uauc', 'ohsisftmt', 'coc') ? 'active' : '' }}"
+                data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-bar-chart"></i><span>Chart (QSE)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
