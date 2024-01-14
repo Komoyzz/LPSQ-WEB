@@ -1,10 +1,9 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
-
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="{{ route('home') }}">
+            <a class="nav-link collapsed" href="{{ route('home') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -19,7 +18,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Tables (SMS)</span><i
+                <i class="bi bi-layout-text-window-reverse"></i><span>Chart (SMS)</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -49,11 +48,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('totalaudit') }}">
-                        <i class="bi bi-circle"></i><span>Total Audit</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('circular') }}">
                         <i class="bi bi-circle"></i><span>Circular</span>
                     </a>
@@ -68,17 +62,12 @@
                         <i class="bi bi-circle"></i><span>Negative Feedback</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('moc') }}">
-                        <i class="bi bi-circle"></i><span>MOC</span>
-                    </a>
-                </li>
             </ul>
         </li><!-- End Tables Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-bar-chart"></i><span>Tables (QSE)</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-bar-chart"></i><span>Chart (QSE)</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -123,7 +112,7 @@
                 </li>
                 <li>
                     <a href="{{ route('ohsisftmt') }}">
-                        <i class="bi bi-circle"></i><span>OSHI - SFTMT</span>
+                        <i class="bi bi-circle"></i><span>OSHI - Safety Meeting</span>
                     </a>
                 </li>
                 <li>
@@ -136,12 +125,14 @@
 
         <li class="nav-heading">Pages</li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-register.html">
-                <i class="bi bi-person"></i>
-                <span>Manage User</span>
-            </a>
-        </li>
+        @if (Auth::check() && Auth::user()->type === 'admin')
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('userdate') }}">
+                    <i class="bi bi-person"></i>
+                    <span>Manage User</span>
+                </a>
+            </li>
+        @endif
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="pages-register.html">
@@ -151,5 +142,4 @@
         </li><!-- End Register Page Nav -->
 
     </ul>
-
 </aside><!-- End Sidebar-->

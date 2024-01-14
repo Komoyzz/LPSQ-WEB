@@ -11,17 +11,14 @@
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </nav>
-        </div><!-- End Page Title -->
-
-
+        </div>
 
         <section class="section dashboard">
-            <div class="row">
 
-                <!-- Welcome Card -->
+            <!-- Welcome Card -->
+            <div class="row">
                 <div class="col-12  col-md-6">
                     <div class="card info-card welcome-card revenue-card">
-
                         <div class="card-body">
                             <h5 class="card-title">Selamat Datang di Website LPSQ</h5>
                             <div class="card-title"><span>{{ Auth::user()->name }}</span></div>
@@ -29,15 +26,13 @@
                                 <h6>HAVE A FUN DAY,</h6>
                                 <span class="text-muted small pt-2 ps-1">Selamat Bekerja!</span>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-            </div><!-- End Welcome Card -->
-
             </div>
+            <!-- End Welcome Card -->
+
         </section>
 
-    </main><!-- End #main -->
+    </main>
 @endsection

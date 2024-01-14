@@ -1,5 +1,6 @@
 <?php
 
+use Spatie\Html\HtmlFacade;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -187,6 +188,7 @@ return [
              * Package Service Providers...
              */
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Spatie\Html\HtmlServiceProvider::class,
             /*
              * Application Service Providers...
              */

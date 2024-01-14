@@ -8,9 +8,9 @@
 
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                            <h2>{{ Auth::user()->name }}</h2>
-                            <h3>Sobat LPSQ</h3>
+                            <img src="{{ Auth::user()->image }}" alt="Profile" class="rounded-circle">
+                            <h2>{{ Auth::user()->username }}</h2>
+                            <h3>{{ Auth::user()->job }}</h3>
                         </div>
                     </div>
 
@@ -42,32 +42,51 @@
                             <div class="tab-content pt-2">
 
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                    <h5 class="card-title">About</h5>
-                                    <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores
-                                        cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure
-                                        rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at
-                                        unde.</p>
+                                    @if (session('success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong class="font-bold">Success!</strong>
+                                            <span class="block sm:inline">{{ session('success') }}</span>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @elseif(session('unsuccess'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong class="font-bold">Unsuccess!</strong>
+                                            <span class="block sm:inline">{{ session('unsuccess') }}</span>
+                                        </div>
+                                    @endif
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <ul class="list-disc pl-5">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ htmlentities($error) }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
 
                                     <h5 class="card-title">Profile Details</h5>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                        <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->name }}</div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Job</div>
-                                        <div class="col-lg-9 col-md-8">Web Designer</div>
+                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->job }}</div>
                                     </div>
-
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Address</div>
+                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->address }}</div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Phone</div>
-                                        <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->phone }}</div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                                        <div class="col-lg-9 col-md-8">{{ Auth::user()->email }}</div>
                                     </div>
 
                                 </div>
@@ -75,60 +94,76 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form>
+                                    <form action="{{ route('profile.update', $user->id) }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @method('PUT')
+                                        @csrf
                                         <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
+                                            <label for="image" class="col-md-4 col-lg-3 col-form-label">Profile
                                                 Image</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
-                                                <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                                                </div>
+                                                <input class="form-control" type="file" name="image" id="image"
+                                                    accept="image/*">
+                                                @error('image')
+                                                    <span class="invalid-feedback">{{ htmlentities($message) }}</span>
+                                                @enderror
                                             </div>
                                         </div>
-
                                         <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                                            <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="fullName" type="text" class="form-control" id="fullName"
-                                                    value="Kevin Anderson">
+                                                <input name="username" type="text" class="form-control" id="username"
+                                                    value="{{ Auth::user()->username }}">
                                             </div>
                                         </div>
-
                                         <div class="row mb-3">
-                                            <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
+                                            <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                                                <input name="email" type="text" class="form-control" id="email"
+                                                    value="{{ Auth::user()->email }}">
                                             </div>
                                         </div>
-
+                                        <div class="row mb-3">
+                                            <label for="name" class="col-md-4 col-lg-3 col-form-label">Full
+                                                Name</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="name" type="text" class="form-control" id="name"
+                                                    value="{{ Auth::user()->name }}">
+                                                @error('name')
+                                                    <span class="invalid-feedback">{{ htmlentities($message) }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
                                             <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="job" type="text" class="form-control" id="Job"
-                                                    value="Web Designer">
+                                                <input name="job" type="text" class="form-control" id="job"
+                                                    value="{{ Auth::user()->job }}">
+                                                @error('job')
+                                                    <span class="invalid-feedback">{{ htmlentities($message) }}</span>
+                                                @enderror
                                             </div>
                                         </div>
-
+                                        <div class="row mb-3">
+                                            <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="address" type="text" class="form-control" id="address"
+                                                    value="{{ Auth::user()->address }}">
+                                                @error('address')
+                                                    <span class="invalid-feedback">{{ htmlentities($message) }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
                                             <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="phone" type="text" class="form-control" id="Phone"
-                                                    value="(436) 486-3538 x29071">
+                                                <input name="phone" type="text" class="form-control" id="phone"
+                                                    value="{{ Auth::user()->phone }}">
+                                                @error('phone')
+                                                    <span class="invalid-feedback">{{ htmlentities($message) }}</span>
+                                                @enderror
                                             </div>
                                         </div>
-
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="Email"
-                                                    value="k.anderson@example.com">
-                                            </div>
-                                        </div>
-
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary">Save Changes</button>
                                         </div>
@@ -138,35 +173,34 @@
 
                                 <div class="tab-pane fade pt-3" id="profile-change-password">
                                     <!-- Change Password Form -->
-                                    <form>
 
+                                    <form method="POST" action="{{ route('password.update', $user->id) }}">
+                                        @method('post')
+                                        @csrf
                                         <div class="row mb-3">
                                             <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
                                                 Password</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="password" type="password" class="form-control"
+                                                <input name="current_password" type="password" class="form-control"
                                                     id="currentPassword">
                                             </div>
                                         </div>
-
                                         <div class="row mb-3">
                                             <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
                                                 Password</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="newpassword" type="password" class="form-control"
+                                                <input name="password" type="password" class="form-control"
                                                     id="newPassword">
                                             </div>
                                         </div>
-
                                         <div class="row mb-3">
                                             <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter
                                                 New Password</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="renewpassword" type="password" class="form-control"
+                                                <input name="password_confirmation" type="password" class="form-control"
                                                     id="renewPassword">
                                             </div>
                                         </div>
-
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary">Change Password</button>
                                         </div>

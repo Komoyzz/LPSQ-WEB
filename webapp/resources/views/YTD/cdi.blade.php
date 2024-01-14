@@ -3,9 +3,25 @@
 @section('content')
     <main id="main" class="main">
 
-        <div class="container d-block pt-5">
-            <img src="{{ asset('/img/Chart SS/YTD/cdi/cdi.png') }}" alt="" width="450px" class="mx-5 pb-4">
-            <img src="{{ asset('/img/Chart SS/YTD/cdi/cdi1.png') }}" alt="" width="465px" class="mx-5 pb-4">
+        <div class="col-lg-12 mt-3">
+            <div class="card text-dark pt-3" style="background-color:#87C38F">
+                <div class="card-body">
+                    {!! $CDI1Chart->container() !!}
+                    <script src="{{ $CDI1Chart->cdn() }}"></script>
+                    {!! $CDI1Chart->script() !!}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 mt-3">
+            <div class="card text-dark pt-3" style="background-color:#484D6D">
+                <div class="card-body">
+                    {!! $CDI2Chart->container() !!}
+                    <script src="{{ $CDI2Chart->cdn() }}"></script>
+                    {!! $CDI2Chart->script() !!}
+                </div>
+            </div>
+        </div>
 
     </main>
 @endsection

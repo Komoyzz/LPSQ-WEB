@@ -8,6 +8,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
                             @if (Session::has('status'))
                                 <div class="alert alert-success" role="alert">
                                     <strong class="font-bold">Success!</strong>
@@ -39,15 +40,13 @@
                             <div class="d-xxl-flex justify-content-between py-4">
                                 <a class="logo align-items-center w-auto">
                                     <img src="{{ asset('/img/PIS.png') }}" alt="" class="d-lg-block px-4"
-                                        width="185px">
-                                    <span class="d-none d-lg-block just pt-4 text-center">Website LPSQ</span>
+                                        width="214px">
+                                    <span class="d-none d-lg-block pt-4 text-center">Dashboard LPSQ</span>
                                 </a>
-                            </div><!-- End Logo -->
+                            </div>
 
                             <div class="card mb-3">
-
                                 <div class="card-body">
-
                                     <div class="pt-3 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                                         <p class="text-center small">Enter your username & password to login</p>
@@ -55,7 +54,6 @@
 
                                     <form class="row g-3 needs-validation" novalidate
                                         action="{{ route('login.post') }}"method="post" class="user">
-
                                         @method('POST')
                                         @csrf
 
@@ -82,13 +80,11 @@
                                                 <label class="form-check-label" for="rememberMe">Remember me</label>
                                             </div>
                                         </div>
+
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Login</button>
                                         </div>
-                                        <div class="col-12">
-                                            <p class="small mb-0">Forgot Passwprd? <a href="pages-register.html">Change
-                                                    Password</a></p>
-                                        </div>
+
                                     </form>
 
                                 </div>
@@ -101,9 +97,8 @@
                         </div>
                     </div>
                 </div>
-
             </section>
 
         </div>
-    </main><!-- End #main -->
+    </main>
 @endsection

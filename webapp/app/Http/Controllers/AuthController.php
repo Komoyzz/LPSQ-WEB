@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -14,7 +17,6 @@ class AuthController extends Controller
     {
         return view('Auth.login');
     }
-
     public function loginPost(Request $request)
     {
         $request->validate([
@@ -29,7 +31,7 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if ($user->type == 'user') {
-                return redirect()->route('dashboard')->withSuccess("Welcome to Dashboard User");
+                return redirect()->route('home')->withSuccess("Welcome to Dashboard User");
             } else {
                 return redirect()->route('login')->withUnsuccess("Your account is not active.");
             }
@@ -39,8 +41,6 @@ class AuthController extends Controller
             'username' => 'Invalid username or password.',
         ]);
     }
-
-
     public function logout()
     {
         Auth::logout();
@@ -51,14 +51,9 @@ class AuthController extends Controller
 
         return redirect('/');
     }
-
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.

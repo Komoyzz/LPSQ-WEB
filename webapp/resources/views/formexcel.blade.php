@@ -1,4 +1,5 @@
 @extends('Template.main')
+
 @section('content')
     <main id="main" class="main">
 
@@ -6,7 +7,7 @@
             <h1>Form Excel</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                     <li class="breadcrumb-item active">Form Excel</li>
                 </ol>
             </nav>
@@ -18,70 +19,104 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Masukkan Data Excel</h5>
 
-                            <!-- General Form Elements -->
-                            <form>
-                                <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Nama File</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control">
+                            <h5 class="card-title">Select Audit Type</h5>
+
+                            <!-- Border Tab -->
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#audit-sms">Audit
+                                        SMS</button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#audit-qse">Audit
+                                        QSE</button>
+                                </li>
+                            </ul>
+
+                            <!-- Audit Type -->
+                            <div class="tab-content pt-2">
+
+                                <!-- Form Audit SMS -->
+                                <div class="tab-pane fade show active audit-qse pt-3" id="audit-sms">
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import1') }}'">Navigation
+                                            Audit</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import2') }}'">Cargo Operation</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import3') }}'">Mooring
+                                            Operation</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import4') }}'">Engineering
+                                            Audit</button>
+                                    </div>
+                                    <div class="d-flex justify-content-center my-lg-auto">
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import5') }}'">Superintendent
+                                            Visit</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import6') }}'">Circular</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import7') }}'">MWT</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4 "
+                                            style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import8') }}'">Negative
+                                            Feedback</button>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Upload</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="file" id="formFile">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
-                                    <div class="col-sm-10">
-                                        <input type="date" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Keterangan</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" style="height: 100px"></textarea>
-                                    </div>
-                                </div>
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Pilih Sheet</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
+                                <!-- Form Audit QSE -->
+                                <div class="tab-pane fade pt-3" id="audit-qse">
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import9') }}'">Incident Record</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import10') }}'">Investigation
+                                            Record</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import11') }}'">BJST</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import12') }}'">PSC</button>
                                     </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label"></label>
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                                    <div class="d-flex justify-content-center my-lg-auto">
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import13') }}'">CDI</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import14') }}'">Sire</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import15') }}'">Internal
+                                            Audit</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import16') }}'">UAUC</button>
+                                    </div>
+                                    <div class="d-flex justify-content-center my-lg-auto">
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import17') }}'">OHSI - Safety
+                                            Meeting</button>
+                                        <button class="btn btn-info btn-lg mx-auto my-4" style="width: 200px; height: 75px;"
+                                            onclick="window.location.href='{{ route('Import18') }}'">COC</button>
                                     </div>
                                 </div>
 
-                                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                                    <i class="bi bi-star me-1"></i>
-                                    Harap masukkan file excel yang hanya mempunyai tabel variabel data yang akan dijadikan
-                                    diagram!
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                                <div class="alert alert-warning mt-4" role="alert">
+                                    Silahkan click tombol diatas untuk mengunggah file! (1 File untuk 1 Jenis Audit)
                                 </div>
 
-                            </form><!-- End General Form Elements -->
-
+                            </div>
                         </div>
+
                     </div>
-
                 </div>
-
-            </div>
         </section>
 
     </main><!-- End #main -->

@@ -3,11 +3,36 @@
 @section('content')
     <main id="main" class="main">
 
-        <div class="container d-block pt-5">
-            <img src="{{ asset('/img/Chart SS/YTD/psc/psc1.png') }}" alt="" width="500px" class="px-5 pb-5">
-            <img src="{{ asset('/img/Chart SS/YTD/psc/psc2.png') }}" alt="" width="500px" class="px-5 pb-5">
-            <img src="{{ asset('/img/Chart SS/YTD/psc/psc3.png') }}" alt="" width="500px" class="px-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 mt-3 d-flex" style="width:650px;">
+                <div class="card text-dark pt-3" style="width:650px; background-color: #468189;">
+                    <div class="card-body">
+                        {!! $PSC1Chart->container() !!}
+                        <script src="{{ $PSC1Chart->cdn() }}"></script>
+                        {!! $PSC1Chart->script() !!}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mt-3">
+                <div class="card text-dark pt-3" style="background-color: #2F4858;">
+                    <div class="card-body">
+                        {!! $PSC3Chart->container() !!}
+                        <script src="{{ $PSC3Chart->cdn() }}"></script>
+                        {!! $PSC3Chart->script() !!}
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="col-md-11">
+            <div class="card text-dark pt-3" style="margin-left: 19px; background-color: #5C7457;">
+                <div class="card-body">
+                    {!! $PSC2Chart->container() !!}
+                    <script src="{{ $PSC2Chart->cdn() }}"></script>
+                    {!! $PSC2Chart->script() !!}
+                </div>
+            </div>
 
     </main>
 @endsection
