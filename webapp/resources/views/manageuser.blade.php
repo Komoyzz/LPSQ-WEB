@@ -17,7 +17,7 @@
                 <!-- List Data User -->
                 <div class="col-12">
                     <div class="card recent-sales overflow-auto">
-                        <div class="card-body row" style="background-color: #B2AC88">
+                        <div class="card-body row" style="background-color: #457B9D">
                             <h5 class="card-title">Data User</span></h5>
                             @if (session('success'))
                                 <div class="alert alert-success" role="alert">
@@ -141,7 +141,7 @@
                         </table>
 
                         <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
                                 data-bs-target="#addUserModal">
                                 Tambah Akun
                             </button>

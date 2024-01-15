@@ -7,7 +7,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
-    background: #f6f9ff;
+    background: #ffffff;
     color: #444444;
 }
 
@@ -374,16 +374,21 @@ h6 {
     height: 60px;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     background-color: #fff;
-    padding-left: 20px;
     /* Toggle Sidebar Button */
     /* Search Bar */
+}
+
+.header .header-left {
+    height: 60px;
+    background-color: #fff;
+    padding-left: 18px;
 }
 
 .header .toggle-sidebar-btn {
     font-size: 32px;
     padding-left: 10px;
     cursor: pointer;
-    color: #012970;
+    color: #000;
 }
 
 .header .search-bar {
@@ -602,7 +607,7 @@ h6 {
     scrollbar-width: thin;
     scrollbar-color: #aab7cf transparent;
     box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-    background-color: #fff;
+    background-color: #13293d;
 }
 
 @media (max-width: 1199px) {
@@ -664,7 +669,7 @@ h6 {
 .sidebar-nav .nav-heading {
     font-size: 11px;
     text-transform: uppercase;
-    color: #899bbd;
+    color: #4154f1;
     font-weight: 600;
     margin: 10px 0 5px 15px;
 }
@@ -676,7 +681,7 @@ h6 {
     font-weight: 600;
     color: #4154f1;
     transition: 0.3;
-    background: #f6f9ff;
+    background: #a4b8e0;
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -692,9 +697,9 @@ h6 {
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #012970;
+    color: #ffffff;
     transition: 0.3;
-    background: #fff;
+    background: #13293d;
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -702,12 +707,12 @@ h6 {
 .sidebar-nav .nav-link i {
     font-size: 16px;
     margin-right: 10px;
-    color: #899bbd;
+    color: #ffffff;
 }
 
 .sidebar-nav .nav-link:hover {
     color: #4154f1;
-    background: #f6f9ff;
+    background: #a4b8e0;
 }
 
 .sidebar-nav .nav-link:hover i {
@@ -726,10 +731,6 @@ h6 {
 
 .sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
     transform: rotate(180deg);
-}
-
-.sidebar-nav .nav-link.active + ul {
-    display: block !important;
 }
 
 .sidebar-nav .nav-content {
@@ -754,7 +755,7 @@ h6 {
     align-items: center;
     font-size: 14px;
     font-weight: 600;
-    color: #012970;
+    color: #fff;
     transition: 0.3;
     padding: 10px 0 10px 40px;
     transition: 0.3s;
@@ -1256,8 +1257,17 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Download Button
+# Additional Button
 --------------------------------------------------------------*/
+.form-excel.btn {
+    background-color: #84a98c;
+}
+
+.upload.btn {
+    background-color: #84a98c;
+    color: #000;
+}
+
 .download-button {
     display: inline-flex;
     align-items: center;
@@ -1269,10 +1279,10 @@ h6 {
     text-decoration: none;
     cursor: pointer;
     color: #ffffff;
-    background-color: #758e4f;
+    background-color: #588157;
     border-radius: 3px;
     transition: background-color 0.3s;
 }
 .download-button:hover {
-    background-color: #ffffff;
+    background-color: #cbeaa6;
 }

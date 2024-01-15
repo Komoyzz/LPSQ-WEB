@@ -30,7 +30,7 @@
                                     <div class="mb-3">
                                         <input type="file" class="form-control" name="excel" id="excel">
                                     </div>
-                                    <button type="submit" class="btn btn-info">Upload</button>
+                                    <button type="submit" class="btn upload btn">Upload</button>
                                 </form>
 
                                 @if (session('success'))
