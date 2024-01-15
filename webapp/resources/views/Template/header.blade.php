@@ -8,8 +8,6 @@
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
@@ -47,15 +45,17 @@
                         </li>
 
                         <li>
-                            <form action="{{ route('logout') }}" method="post">
+                            <form id="header-logout-form" action="{{ route('logout') }}" method="post"
+                                style="display: none;">
                                 @csrf
-                                <button type="submit" class="dropdown-item">
-                                    <i class="bi bi-box-arrow-right"></i> Sign Out
-                                </button>
                             </form>
+                            <button id="header-logout-button" class="dropdown-item" href="#">
+                                <i class="bi bi-box-arrow-right"></i> Sign Out
+                            </button>
                         </li>
 
                     </ul><!-- End Profile Dropdown Items -->
+
                 </li><!-- End Profile Nav -->
 
             </ul>

@@ -714,6 +714,11 @@ h6 {
     color: #4154f1;
 }
 
+.sidebar-nav .nav-link.active .bi-chevron-down {
+    margin-right: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
 .sidebar-nav .nav-link .bi-chevron-down {
     margin-right: 0;
     transition: transform 0.2s ease-in-out;
@@ -723,10 +728,25 @@ h6 {
     transform: rotate(180deg);
 }
 
+.sidebar-nav .nav-link.active + ul {
+    display: block !important;
+}
+
 .sidebar-nav .nav-content {
     padding: 5px 0 0 0;
     margin: 0;
     list-style: none;
+}
+
+.sidebar-nav .nav-content.active a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4154f1;
+    transition: 0.3;
+    padding: 10px 0 10px 40px;
+    transition: 0.3s;
 }
 
 .sidebar-nav .nav-content a {

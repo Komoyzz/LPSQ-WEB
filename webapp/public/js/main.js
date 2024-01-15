@@ -330,16 +330,41 @@
     });
 
     /**
-     * Autoresize echart charts
+     * Sign Out Notification
      */
-    const mainContainer = select("#main");
-    if (mainContainer) {
-        setTimeout(() => {
-            new ResizeObserver(function () {
-                select(".echart", true).forEach((getEchart) => {
-                    echarts.getInstanceByDom(getEchart).resize();
-                });
-            }).observe(mainContainer);
-        }, 200);
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        document
+            .getElementById("logout-link")
+            .addEventListener("click", function (e) {
+                e.preventDefault();
+                showLogoutConfirmation(
+                    "Are you sure want to sign out?",
+                    "logout-form"
+                );
+            });
+
+        document
+            .getElementById("header-logout-button")
+            .addEventListener("click", function (e) {
+                e.preventDefault();
+                showLogoutConfirmation(
+                    "Are you sure want to sign out?",
+                    "header-logout-form"
+                );
+            });
+
+        function showLogoutConfirmation(title, formId) {
+            Swal.fire({
+                title: title,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                cancelButtonText: "No",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(formId).submit();
+                }
+            });
+        }
+    });
 })();
