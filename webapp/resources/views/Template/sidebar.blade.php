@@ -1,4 +1,5 @@
 @php
+    $activeClassFormExcel = Request::is('formexcel', 'Import1', 'Import2', 'Import3', 'Import4', 'Import5', 'Import6', 'Import7', 'Import8', 'Import9', 'Import10', 'Import11', 'Import12', 'Import13', 'Import14', 'Import15', 'Import16', 'Import17', 'Import18') ? 'active' : '';
     $activeClassSMS = Request::is('navigationaudit', 'cargooperation', 'mooringoperation', 'engineeringaudit', 'superintendentvisit', 'circular', 'mwt', 'negativefeedback') ? 'active' : '';
     $activeClassQSE = Request::is('incidentrecord', 'investigationrecord', 'bjst', 'psc', 'cdi', 'sirre', 'internalaudit', 'uauc', 'ohsisftmt', 'coc') ? 'active' : '';
     $showClassSMS = Request::is('navigationaudit', 'cargooperation', 'mooringoperation', 'engineeringaudit', 'superintendentvisit', 'circular', 'mwt', 'negativefeedback') ? 'show' : '';
@@ -17,7 +18,7 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('formexcel') ? 'active' : '' }}" href="{{ route('formexcel') }}">
+            <a class="nav-link {{ $activeClassFormExcel }}" href="{{ route('formexcel') }}">
                 <i class="bi bi-journal-text"></i>
                 <span>Form Excel</span>
             </a>

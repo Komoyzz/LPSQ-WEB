@@ -1260,12 +1260,19 @@ h6 {
 # Additional Button
 --------------------------------------------------------------*/
 .form-excel.btn {
-    background-color: #84a98c;
+    background-color: #1171ba;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .upload.btn {
-    background-color: #84a98c;
-    color: #000;
+    background-color: #1171ba;
+    color: #fff;
 }
 
 .download-button {
@@ -1278,11 +1285,18 @@ h6 {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    color: #ffffff;
-    background-color: #588157;
+    color: #fff;
+    background-color: #023436;
     border-radius: 3px;
     transition: background-color 0.3s;
 }
+
 .download-button:hover {
-    background-color: #cbeaa6;
+    background-color: #fff;
+    color: #000;
+}
+
+.add-account.btn {
+    background-color: #bdd95e;
+    color: #000;
 }

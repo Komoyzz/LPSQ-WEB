@@ -46,12 +46,12 @@
                             </div>
 
                             <div class="mt-3">
-                                <div class="alert alert-warning my-4 text-center" role="alert">
+                                <div class="alert alert-dark my-4 text-center" role="alert">
                                     Unggah file sesuai dengan format yang ditetapkan.
                                     <div class="d-flex justify-content-center mt-3">
                                         <a href="https://drive.google.com/drive/folders/1qO_InTPgnPLR4bL6b-QXSvt-i_Z7APkX?usp=sharing"
                                             class="download-button" target="_blank">
-                                            Gdrive Format Excel
+                                            Format Excel
                                         </a>
                                     </div>
                                 </div>

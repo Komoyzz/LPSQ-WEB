@@ -57,7 +57,7 @@
                                             <td>{{ htmlentities($user->username) }}</td>
                                             <td><a href="#" class="text-primary">{{ htmlentities($user->email) }}</a>
                                             </td>
-                                            <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#user{{ $user->id }}">
                                                     <i class="bi bi-info-circle">
                                                     </i></button>
@@ -141,7 +141,7 @@
                         </table>
 
                         <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                            <button type="button" class="btn add-account btn" data-bs-toggle="modal"
                                 data-bs-target="#addUserModal">
                                 Tambah Akun
                             </button>

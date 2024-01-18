@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
 
-                                <div class="alert alert-warning mt-4" role="alert">
+                                <div class="alert alert-dark mt-4" role="alert">
                                     Silahkan click tombol diatas untuk mengunggah file! (1 File untuk 1 Jenis Audit)
                                 </div>
 
